@@ -1,0 +1,10 @@
+Welcome to my dice game!
+
+The game of craps is perhaps the most famous of all dice games. 
+The player begin by throwing two standard dice. If the sum of 
+these dice is 7 or 11, the player wins. If the sum is 2,3 or 12, 
+the player loses. Otherwise, the sum becomes the player’s point. 
+The player continues to roll until either the point comes up again, in which 
+case the player wins, or the player throws 7, in which case they lose.
+
+Press S to start the game or X to exit.

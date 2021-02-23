@@ -1,1 +1,66 @@
 Add your steps (pseudo-code) for the dice game here.
+
+Display welcome message
+
+init variable to start game
+init variable to play game again
+init variable to roll dice again
+init games won to 0
+init games lost to 0
+init times the dice was rolled to 0
+init games played to 0
+
+if statement to start the game:
+{
+    play game loop:
+    {
+        init point to 0
+        roll two dice 
+        init the sum of two dice
+        times rolled inreases by 1
+
+        if(sum == winning values)
+        {
+            display winning message
+            get option to play again
+            games won increases by 1
+        }
+        if(sum == losing values)
+        {
+            display losing message
+            get option to play again
+            games lost increases by 1
+        }
+        else
+        {
+            set point value equal to sum
+            get option to roll again
+            while(roll again == true)
+            {
+                roll two dice again
+                get the sum
+                if(sum == point)
+                {
+                    display wining message
+                    get opiton to play again
+                    games won increases by 1
+                }
+                if(sum == losing value)
+                {
+                    display losing message
+                    get opiton to play again
+                    games lost increases by 1
+                }
+                else
+                {
+                    get opiton to roll again
+                    increase times rolled by 1
+                }
+            }
+        }
+        games play increas by 1
+        get option to play again
+        
+    }
+    Display games played, games won, games lost, and times rolled
+}

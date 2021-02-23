@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream> 
+#include <climits>
 using namespace std;
 
 int main()
@@ -48,11 +49,11 @@ int main()
   
 
     output_file << "\nQ1: (cin only) What happens when you run the code above? Explain why" << endl;
-    string answer = ""; // enter your answer in between ""
+    string answer = "I entered 10 and the fail flag is false, but when I entered 4.5 the flag is still false and it extracts 4 \n and it continues to loop without accepting any other values"; // enter your answer in between ""
     output_file << "Answer Q1: " << answer << endl;
 
     cout << "\nCode for Q2 and Q3" << endl;
-    /* //uncomment when you get to Q2 and Q3
+     //uncomment when you get to Q2 and Q3
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -75,19 +76,18 @@ int main()
         
         cout << "\tYou entered " << val << endl << endl;
     }  
-    */
 
     output_file << "\nQ2: (cin + fail+ignore) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "I entered 10 and it set the fail flag to false, then I entered 4.5 and It set teh flag to false, but it shows .5 was unread in the buffer \n, for abc and a it sets the fail flag to true and explains it is not an integer"; // enter your answer in between ""
     output_file << "Answer Q2: " << answer << endl;
 
     output_file << "\nQ3: Is the problem of reading an integer value solved? Explain your reasoning." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "No, becauses for 4.5 it set the flag to false and it extracted 4 without saying it is not an integer"; // enter your answer in between ""
     output_file << "Answer Q3: " << answer << endl;
 
     cout << "\nCode for Q4" << endl;
     // uncomment when you get to Q4
-   /*
+ /*  
     for (int i = 0; i < array_values.size(); i++)
     {
         cout << "\tEnter the value " << array_values.at(i) << endl;
@@ -101,7 +101,7 @@ int main()
     }  
 */
     output_file << "\nQ4: (getline only) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "I entered 10 and it displays the value, then I entered 4.5 and it displays the value 4, \n then i entered abc and the program terminates with an error thrown by the stoi function"; // enter your answer in between ""
     output_file << "Answer Q4: " << answer << endl;
 
     // Comment the for loop for Q4 above - leave the answer to Q4
@@ -124,7 +124,7 @@ int main()
         cout << "\tYou entered " << val << endl << endl;
     }
     output_file << "\nQ5: (getline+stoi) What happens when you run the code above? Explain why." << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "Does the samething as Q4 but the error for abc is caught and the program doesn't termainate"; // enter your answer in between ""
     output_file << "Answer Q5: " << answer << endl;
 
     //6. Q6 Add code to enter integer values from the keyboard correctly = accept only 10, not 4.5, abc or a
@@ -139,9 +139,29 @@ int main()
         // it should display "Incorrect ", followed by the value you entered, for the rest of of the values 
         // (4.5, abc or a) 
         // YOUR CODE NEEDS TO DETECT that 4.5 is not an integer
+        cin >> val;
+
+        string s; 
+        getline(cin,s); 
+
+        if(s.length() == 0 && !(cin.fail()))
+        {
+            cout << "\tCorrect " << val << endl << endl;
+        }
+
+        if (cin.fail())
+        {
+            cin.clear(); // clears the flags   
+            cin.ignore(INT_MAX,'\n'); // ignore all characters from cin until new line '\n'
+            cout << "\tIncorrect " << val << endl << endl;
+        }
+        if(s.length() != 0)
+        {
+        cout << "\tInorrect " << val << endl << endl;
+        }
     }
     output_file << "\nQ6: Explain your method to validate integer values entered" << endl;
-    answer = ""; // enter your answer in between ""
+    answer = "When a value is entered it is checked to see if there is nothing in the buffer and the flag didn't fail \n and if the flag failed or there is something in the buffer then it isn't an integer"; // enter your answer in between ""
     output_file << "Answer Q6: " << answer << endl;
     output_file.close();
 }
